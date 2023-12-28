@@ -12,16 +12,22 @@ class XraySupport:
         self.graph_url = self.url + self.xray_endpoints.graphql
         self.token = context.xray_token
 
-    def post_graphql(self, payload):
+    def xray_header(self):
         headers = {'Authorization': 'Bearer ' + self.token,
                    'Content-Type': 'application/json'}
-        response = requests.request("POST", self.graph_url, headers=headers, data=payload, verify=False)
+        return headers
+
+    def post_graphql(self, payload):
+        response = requests.request("POST", self.graph_url, headers=self.xray_header(), data=payload, verify=False)
         json_resp = json.loads(response.text)
         return json_resp
 
     def get_graphql(self, payload):
-        headers = {'Authorization': 'Bearer ' + self.token,
-                   'Content-Type': 'application/json'}
-        response = requests.request("GET", self.graph_url, headers=headers, data=payload, verify=False)
+        response = requests.request("GET", self.graph_url, headers=self.xray_header(), data=payload, verify=False)
         json_resp = json.loads(response.text)
         return json_resp
+
+    def import_xray_json_report(self, reports_json):
+        url = self.url + self.xray_endpoints.import_results
+        payload = json.dumps(reports_json)
+        response = requests.request("POST", url, headers=self.xray_header(), data=payload, verify=False)

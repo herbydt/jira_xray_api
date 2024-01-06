@@ -1,4 +1,4 @@
-from behave import given
+from behave import given, when, step
 
 
 @given('the initialize method is completed')

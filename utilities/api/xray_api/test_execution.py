@@ -7,7 +7,7 @@ class XrayTestExecution:
         self.xray_support = XraySupport(context)
 
     def create_test_execution(self, summary, proj_key):
-        summary = summary + "Test Execution"
+        summary = summary + " - Test Execution"
         payload = "{\"query\":\"mutation {\\n createTestExecution(\\n testIssueIds: []\\n jira: {\\n fields: {\\n " \
                   "summary: \\\"" + summary + "\\\",\\n project: {key: \\\"" + proj_key + "\\\"} \\n }\\n }\\n ) {\\n "\
                   "testExecution {\\n issueId\\n jira(fields: [\\\"key\\\"])\\n }\\n warnings\\n " \

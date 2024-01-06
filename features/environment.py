@@ -9,4 +9,4 @@ def before_all(context: Context):
     xray_client_id = os.environ['XRAY_ID']
     xray_client_secret = os.environ['XRAY_SECRET']
     context.xray_token = XrayToken().generate_token(xray_client_id, xray_client_secret)
-    print(context.xray_token)
+    context.project_key = os.environ['PROJECT_KEY']

@@ -7,7 +7,7 @@ class XrayTestPlan:
         self.xray_support = XraySupport(context)
 
     def create_test_plan(self, summary, proj_key):
-        summary = summary + "Test Plan"
+        summary = summary + " - Test Plan"
         payload = "{\"query\":\"mutation {\\n createTestPlan(\\n testIssueIds: []\\n jira: {\\n fields: {\\n summary:" \
                   "\\\"" + summary + "\\\",\\n project: {key: \\\"" + proj_key + "\\\"} \\n }\\n }\\n ) {\\n testPlan" \
                   "{\\n issueId\\n jira(fields: [\\\"key\\\"])\\n }\\n warnings\\n }\\n}\",\"variables\":{}}"

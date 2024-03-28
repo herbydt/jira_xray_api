@@ -1,0 +1,3 @@
+No,Brand,Product,Test_Phase,Test_Ticket,Scenario_Name,Data_id,Transaction_id,Status,Error_Message
+1,BRAND,PRODUCT,REGRESSION,TEST-1234,Scenario_1,data_1_A,asdfghjklpoiuytrewqzxcvbnhytgfre,passed,
+2,BRAND,PRODUCT,REGRESSION,TEST-1235,Scenario_1,data_1_B,zzzzasdfghjklpoiuytrewqzxcvbnhyt,failed,error_message

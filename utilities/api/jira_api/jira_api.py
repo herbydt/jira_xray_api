@@ -3,7 +3,7 @@ from jira import JIRA
 
 
 username = "herbert.tiano@gmail.com"
-password = "ATATT3xFfGF0VUzaYQ-DeyxR7pnB-cY92Utt8e3Axiyb_MBn8VpwzmtHMdMzYbqvJpscjfc-vEVjnFU43FjIZX3EIDld-tGFWeo3JrFtovHFJ9xZT-YSQGdEOXiavkPCvsdsldTuG_ReRCik4re9aKGwo_E9fCaHliO7GVVAjqrX6akjtpTw-dM=F203AE5B"
+password = ""
 server = 'https://htiano.atlassian.net'
 options = {'server': server}
 
@@ -18,7 +18,7 @@ def add_attachment_v1():
     files = [('file', (filename, open('C:\\Users\\Herby\\Downloads\\' + filename, 'rb'), 'image/jpeg'))]
 
     headers = {'X-Atlassian-Token': 'nocheck',
-               'Authorization': 'Basic aGVyYmVydC50aWFub0BnbWFpbC5jb206QVRBVFQzeEZmR0YwVlV6YVlRLURleXhSN3BuQi1jWTkyVXR0OGUzQXhpeWJfTUJuOFZwd3ptdEhNZE16WWJxdkpwc2NqZmMtdkVWam5GVTQzRmpJWlgzRUlEbGQtdEdGV2VvM0pyRnRvdkhGSjl4WlQtWVNRR2RFT1hpYXZrUEN2c2RzbGRUdUdfUmVSQ2lrNHJlOWFLR3dvX0U5ZkNhSGxpTzdHVlZBanFyWDZha2p0cFR3LWRNPUYyMDNBRTVC',
+               'Authorization': 'Basic ',
                'Cookie': 'atlassian.xsrf.token=a1e480737cbca781241cde2977c87565e3856700_lin'}
 
     response = requests.request("POST", url, headers=headers, data=payload, files=files)

@@ -22,6 +22,40 @@ class XraySupport:
         json_resp = json.loads(response.text)
         return json_resp
 
+    def post_graphql_with_files(self, payload, files):
+        """
+        Send a GraphQL request with file uploads.
+        
+        Args:
+            payload (dict): The GraphQL query and variables
+            files (dict): Files to be uploaded
+            
+        Returns:
+            dict: JSON response from the API
+        """
+        # Remove Content-Type header to let requests set it automatically for multipart/form-data
+        headers = {'Authorization': 'Bearer ' + self.token}
+        
+        # Convert the payload to a string
+        operations = json.dumps(payload)
+        
+        # Prepare the multipart form data
+        data = {
+            'operations': operations,
+            'map': json.dumps({"0": ["variables.file"]})
+        }
+        
+        # Make the request
+        response = requests.post(
+            self.graph_url,
+            headers=headers,
+            data=data,
+            files=files,
+            verify=False
+        )
+        
+        return json.loads(response.text)
+
     def get_graphql(self, payload):
         response = requests.request("GET", self.graph_url, headers=self.xray_header(), data=payload, verify=False)
         json_resp = json.loads(response.text)

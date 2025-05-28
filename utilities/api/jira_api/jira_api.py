@@ -47,5 +47,25 @@ def create_issue():
     jira = JIRA(options, basic_auth=(username, password))
     jira.create_issue(fields=issue_dict)
 
+def add_comment(issue_key, comment_text):
+    """
+    Add a comment to a Jira ticket.
+    
+    Args:
+        issue_key (str): The key of the Jira issue (e.g., 'SCRUM-1')
+        comment_text (str): The text of the comment to add
+        
+    Returns:
+        Comment: The created comment object
+    """
+    jira = JIRA(options, basic_auth=(username, password))
+    issue = jira.issue(issue_key)
+    comment = jira.add_comment(issue, comment_text)
+    return comment
+
+
+# Example usage
+# add_comment('SCRUM-1', 'This is a test comment added via the API')
+
 
 create_issue()

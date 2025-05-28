@@ -34,3 +34,21 @@ class XrayTestExecution:
                   "{\\n issueId\\n jira(fields: [\\\"key\\\"])\\n }\\n }\\n}\\n\",\"variables\":{}}"
         json_resp = self.xray_support.get_graphql(payload)
         return json_resp["data"]["getTestExecutions"]["results"][0]["issueId"]
+
+    def get_test_runs(self, test_execution_id):
+        """
+        Get test runs for a specific test execution ID.
+        
+        Args:
+            test_execution_id (str): The ID of the test execution
+            
+        Returns:
+            dict: JSON response containing test run information
+        """
+        payload = "{\"query\":\"{\\n getTestRuns(testExecutionId: \\\"" + test_execution_id + "\\\") {\\n id\\n " \
+                  "status {\\n name\\n }\\n test {\\n issueId\\n jira(fields: [\\\"key\\\", \\\"summary\\\"])" \
+                  "\\n }\\n startedOn\\n completedOn\\n duration\\n comment\\n }\\n}\\n\",\"variables\":{}}"
+        json_resp = self.xray_support.get_graphql(payload)
+        return json_resp["data"]["getTestRuns"]
+
+    

@@ -28,7 +28,7 @@ jobs:
       # Runs a single command using the runners shell
       - name: Run a python script - Test
         env:
-          XRAY_TOKEN: ${{ secrets.XRAY_SECRET  }}
+          XRAY_SECRET: ${{ secrets.XRAY_SECRET  }}
           XRAY_ID: ${{  vars.XRAY_ID  }}
         run: python .github/workflows/example.py
 

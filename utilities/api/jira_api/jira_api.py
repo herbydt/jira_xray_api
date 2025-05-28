@@ -47,7 +47,6 @@ def create_issue():
     jira = JIRA(options, basic_auth=(username, password))
     jira.create_issue(fields=issue_dict)
 
-
 def add_comment(issue_key, comment_text):
     """
     Add a comment to a Jira ticket.
@@ -70,4 +69,3 @@ def add_comment(issue_key, comment_text):
 
 
 create_issue()
-

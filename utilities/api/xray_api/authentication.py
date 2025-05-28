@@ -2,8 +2,7 @@ from dotenv import load_dotenv
 import os
 import json
 import requests
-from utilities.endpoints.endpoints import BaseUrls
-from utilities.endpoints.endpoints import XrayEndpoints
+from utilities.endpoints.endpoints import BaseUrls, XrayEndpoints
 
 
 class XrayToken:

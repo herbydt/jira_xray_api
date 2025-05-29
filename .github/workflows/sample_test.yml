@@ -39,10 +39,8 @@ jobs:
             python .github/workflows/example.py
             python -m behavex --tags=sample_tag
 
-      - task: PublishPipelineArtifact@1
-        inputs:
-          targetPath: $(System.DefaultWorkingDirectory)/output
-          artifactName: output
+      - publish: $(System.DefaultWorkingDirectory)/output
+        artifact: output
 
       # # Runs a set of commands using the runners shell
       # - name: Run a multi-line script

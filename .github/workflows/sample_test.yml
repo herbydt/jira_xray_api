@@ -38,8 +38,7 @@ jobs:
         run: |
             python .github/workflows/example.py
             python -m behavex --tags=sample_tag
-
-      - publish: $(System.DefaultWorkingDirectory)/output
+        publish: $(System.DefaultWorkingDirectory)/output
         artifact: output
 
       # # Runs a set of commands using the runners shell

@@ -23,6 +23,7 @@ wheels/
 share/python-wheels/
 *.egg-info/
 output/
+resources/test_results/sample_csv.csv
 .idea/
 .installed.cfg
 *.egg

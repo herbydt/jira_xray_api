@@ -25,6 +25,7 @@ jobs:
         run: |
             python .github/workflows/example.py
             python -m behavex --tags=sample_tag
+            python -m behavex --tags=sample_tag_v2
       - name: Upload Artifacts
         uses: actions/upload-artifact@v4
         with:

@@ -14,12 +14,12 @@ def step_impl(context):
     sample_data = [['ABC', 123]]
     cols = ['Letters', 'Numbers']
     df = pd.DataFrame(sample_data, columns=cols)
-    df.to_csv('resources/test_run_results/sample_csv.csv', index=False)
+    df.to_csv('resources/test_results/sample_csv.csv', index=False)
     print("Successful Run!!!!")
 
 
 @given('this next step is ran')
 def step_impl(context):
-    with open('resources/test_run_results/sample_csv.csv', 'r') as content:
+    with open('resources/test_results/sample_csv.csv', 'r') as content:
         results = pd.read_csv(content)
     print(results['Letters'][0])

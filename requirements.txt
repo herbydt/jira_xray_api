@@ -1,3 +1,4 @@
 behavex==4.0.9
 python-dotenv==0.19.2
 pandas==2.2.2
+openai==1.82.1
